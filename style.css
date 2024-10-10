@@ -1,0 +1,242 @@
+/* Reset and Box Sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* General Body Styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+}
+
+/* Header Section */
+header {
+    background-color: navy;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+header p {
+    font-size: 1.2em;
+    margin-top: 10px;
+}
+
+/* Navigation Menu */
+nav {
+    background-color: navy;
+    padding: 10px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+}
+
+nav ul li {
+    position: relative;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+}
+
+nav ul li a:hover {
+    background-color: navy;
+}
+
+/* Dropdown Menu */
+nav ul ul {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: none;
+    background-color: navy;
+}
+
+nav ul li:hover > ul {
+    display: block;
+}
+
+nav ul ul li {
+    width: 200px;
+}
+
+nav ul ul li a {
+    padding: 10px;
+}
+
+nav ul ul li a:hover {
+    background-color: black;
+}
+
+/* Main Content Area */
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Sections (Feedback and Testimonial) */
+#feedback-section, 
+#testimonial-section {
+    padding: 20px;
+    margin: 20px 0;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Headings */
+h2 {
+    margin-bottom: 15px;
+}
+
+/* Input, Select, and Button General Styles */
+input,
+select,
+button,
+textarea {
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 1em;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+}
+
+/* Button General Styles */
+button {
+    padding: 10px;
+    font-size: 1.2em;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100%; /* Full width for buttons */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: navy;
+}
+
+button:active {
+    background-color: darkblue;
+    transform: scale(0.98);
+}
+
+/* Feedback Form Specific Styles */
+#feedback-form {
+    display: flex;
+    flex-direction: column;
+}
+
+#feedback-form label {
+    margin-top: 10px;
+}
+
+/* Thank You Message Styles */
+#thank-you-message {
+    padding: 20px;
+    margin: 20px 0;
+    background-color: #f0f8ff;
+    border: 2px solid #0077b6;
+    border-radius: 5px;
+    text-align: center;
+}
+
+#thank-you-message p {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+#ok-button {
+    padding: 10px 20px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#ok-button:hover {
+    background-color: navy;
+}
+
+/* Testimonial Section Styles */
+#testimonials-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.testimonial {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-left: 5px solid black;
+    border-radius: 5px;
+}
+
+.testimonial p {
+    margin: 0;
+}
+
+/* Calculator Button Layout */
+.calculator-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Four equal columns */
+    gap: 10px;
+}
+
+/* Calculator Button Styles */
+.calculator-buttons button {
+    padding: 20px;
+    font-size: 1.5em;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+}
+
+.calculator-buttons button:hover {
+    background-color: navy;
+}
+
+/* Footer Section */
+footer {
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 20px;
+    background-color: navy;
+    color: white;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 480px) {
+    .calculator-buttons button {
+        padding: 15px;
+        font-size: 1.2em;
+    }
+
+    #feedback-section, 
+    #testimonial-section {
+        display: block;
+    }
+}
