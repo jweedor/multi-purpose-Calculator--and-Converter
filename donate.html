@@ -1,0 +1,103 @@
+<!-- support.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Support Us</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="donate.html">Donate</a></li>
+          <!-- Add other links here -->
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h1>Support Our Project</h1>
+      <p>If you enjoy our project, please consider donating to support our work!</p>
+
+      <div id="donation-form">
+        <!-- Donation Form -->
+        <form id="donation-form">
+          <label for="donor-name">Name:</label>
+          <input type="text" id="donor-name" name="name" placeholder="Full Name" required><br>
+
+          <label for="donation-amount">Amount (USD):</label>
+          <input type="number" id="donation-amount" name="amount" min="1" placeholder="Enter amount" required><br>
+
+          <button type="button" id="donate-button">Donate</button>
+        </form>
+      </div>
+    </main>
+    <footer>
+      <nav>
+          <ul>
+              <li>
+                  <a href="#" class="toggle">Calculators</a>
+                  <ul class="submenu">
+                      <li><a href="#regular-calculator">Regular Calculator</a></li>
+                      <li><a href="#compound-interest-calculator">Compound Interest Calculator</a></li>
+                      <li><a href="#mortgage-calculator">Mortgage Calculator</a></li>
+                  </ul>
+              </li>
+              <li>
+                  <a href="#" class="toggle">Conversions</a>
+                  <ul class="submenu">
+                      <li><a href="#currency-conversion">Currency Converter</a></li>
+                      <li><a href="#unit-conversion">Unit Converter</a></li>
+                  </ul>
+              </li>
+              <li><a href="donate.html">Donate</a></li>
+          </ul>
+      </nav>
+      <p>© 2024 - Conversion Hub | All Rights Reserved - Designed by JJTechnology, LLC</p>
+  </footer>
+  <script src="script.js"></script>
+
+    <!-- Stripe.js library -->
+    <script src="https://js.stripe.com/v3/"></script>
+    <script>
+      const stripe = Stripe("pk_live_51Q8x4pP28rjBontLGpvzMS34DTexOvWy0A2oxRqkqP7OpBAMHXKmp7yao064P1Vp0wfq1VwgILRK4mhTgIsZqkEY00y0EBgomY"); // Replace with your actual Stripe public key
+
+      // Handle the donation submission
+      const donateButton = document.getElementById('donate-button');
+      donateButton.addEventListener('click', async () => {
+        const name = document.getElementById('donor-name').value;
+        const amount = document.getElementById('donation-amount').value;
+
+        if (!name || !amount) {
+          alert('Please provide your name and donation amount.');
+          return;
+        }
+
+        // Create a checkout session with the server
+        const response = await fetch('/create-checkout-session', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name: name,
+            amount: amount,
+          }),
+        });
+
+        const session = await response.json();
+
+        // Redirect to Stripe checkout
+        const result = await stripe.redirectToCheckout({
+          sessionId: session.id,
+        });
+
+        if (result.error) {
+          alert(result.error.message);
+        }
+      });
+    </script>
+  </body>
+</html>
