@@ -376,6 +376,26 @@
             <p id="compound-result"></p>
         </section>
 
+        <!-- Mortgage Calculator -->
+        <div id="mortgage-calculator">
+            <h2>Mortgage Calculator</h2>
+            <label for="loan-amount">Loan Amount ($):</label>
+            <input type="number" id="loan-amount" placeholder="Enter loan amount" required>
+
+            <label for="down-payment">Down Payment ($):</label>
+            <input type="number" id="down-payment" placeholder="Enter down payment" required>
+        
+            <label for="interest-rate">Annual Interest Rate (%):</label>
+            <input type="number" id="interest-rate" placeholder="Enter interest rate" required>
+        
+            <label for="loan-term">Loan Term (years):</label>
+            <input type="number" id="loan-term" placeholder="Enter loan term in years" required>
+        
+            <button onclick="calculateMortgage()">Calculate Mortgage</button>
+        
+            <div id="mortgage-result"></div>
+        </div>
+
         <!-- Regular Calculator -->
         <section id="regular-calculator">
             <h2>Regular Calculator</h2>
