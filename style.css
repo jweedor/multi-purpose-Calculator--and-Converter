@@ -240,3 +240,44 @@ footer {
         display: block;
     }
 }
+
+
+
+
+
+
+/* Donation button styles */
+#donation-form button {
+    background-color: black
+    border: none;
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 5px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#donation-form button:hover {
+    background-color: navy
+}
+
+/* Footer styles */
+footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+footer nav ul {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0;            /* Remove padding */
+}
+
+footer nav ul li {
+    position: relative; /* Position relative for absolute positioning of submenu */
+}
+
