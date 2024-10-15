@@ -247,6 +247,49 @@ function convertUnits() {
     }
 }
 
+// Function to calculate monthly mortgage payment with down payment
+function calculateMortgage() {
+  const loanAmount = parseFloat(document.getElementById("loan-amount").value);
+  const downPayment = parseFloat(document.getElementById("down-payment").value);
+  const annualInterestRate =
+    parseFloat(document.getElementById("interest-rate").value) / 100;
+  const loanTerm = parseInt(document.getElementById("loan-term").value);
+
+  if (
+    isNaN(loanAmount) ||
+    loanAmount <= 0 ||
+    isNaN(downPayment) ||
+    downPayment < 0 ||
+    isNaN(annualInterestRate) ||
+    annualInterestRate < 0 ||
+    isNaN(loanTerm) ||
+    loanTerm <= 0
+  ) {
+    document.getElementById("mortgage-result").innerText =
+      "Please enter valid input values.";
+    return;
+  }
+
+  const adjustedLoanAmount = loanAmount - downPayment;
+
+  const monthlyInterestRate = annualInterestRate / 12;
+
+  const totalPayments = loanTerm * 12;
+
+  const monthlyPayment =
+    (adjustedLoanAmount * monthlyInterestRate) /
+    (1 - Math.pow(1 + monthlyInterestRate, -totalPayments));
+
+  if (isFinite(monthlyPayment)) {
+    document.getElementById(
+      "mortgage-result"
+    ).innerText = `Monthly Payment: $${monthlyPayment.toFixed(2)}`;
+  } else {
+    document.getElementById("mortgage-result").innerText =
+      "Error calculating payment.";
+  }
+}
+
 // Feedback form submission handler
 document.getElementById('feedbackForm').addEventListener('submit', async function (event) {
     event.preventDefault();  // Prevent default form submission behavior
